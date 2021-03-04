@@ -1,0 +1,115 @@
+Last login: Wed Mar  3 06:29:54 on console
+Jannas-Macbook:~ susanjensen$ export PATH=$PATH:`pwd`;PS1="Shell Scripting Terminal $"
+Shell Scripting Terminal $ls
+Desktop			Library			UMLScript.bash
+Documents		Movies			db
+Downloads		Music			eclipse
+IdeaProjects		Pictures		eclipse-workspace
+JAVA			Public
+Shell Scripting Terminal $cd Documents
+Shell Scripting Terminal $ls
+CooperationRepository	SimilarTo.txt		stockquotes.ser.txt
+PerlPHPRepository	Sites
+School			Tools
+Shell Scripting Terminal $cd School
+Shell Scripting Terminal $ls
+BitBucket	HTML		PBIS		XML
+DatabaseDev	JAVA		Shell_Scripting
+Shell Scripting Terminal $cd Shell_Scripting
+Shell Scripting Terminal $ls
+Assignments			NotPathnameNotExecutable
+Exams				Resourcse
+FileIsPathnameExecutable	ect
+NotPathNameDirectory		sandbox
+NotPathnameExecutable		setup
+Shell Scripting Terminal $cd Assignments
+Shell Scripting Terminal $ls
+Assignment1			FileIsPathnameExcutable
+Assignment2			FileIsPathnameIsDirectory
+Assignment3			FileIsPathnameNotExecutable
+Assignment4			README.md
+Shell Scripting Terminal $cd Assignment1
+Shell Scripting Terminal $ls
+Assignment1			intermediate
+Assignment1RawValidationData	pathnameDirectory
+Assignment1Test			pathnameExecutable
+Assignment1ValiationData	pathnameNotExecutable
+Assignment1ValidationData	paths
+commandsFile			pathsFile
+expOut				programOutput
+expOut.bak			runs
+expOutsFile			runs.bak
+expOutsFile#			runsFile
+expOutsFile.bak			runsFile.bak
+getPath				tempFile
+Shell Scripting Terminal $vim Assignment1
+
+                done
+                if [ $FOUND = "FALSE" ]
+                then
+                        echo NOT FOUND
+                fi
+
+
+        fi
+
+#       if [ $FOUND = "FALSE" ]
+#       then
+#                echo NOT FOUND
+#       fi
+
+done
+
+#echo '$*'
+#echo "$*"
+#for file in "$*"
+#do
+#       echo $file
+#done
+
+
+
+#for file in "$*"
+#do
+#       echo $file
+#       echo
+        #if grep -q
+        # Is file pathname?
+
+        #if [ -e "$file" ]
+        #then
+        #       echo "File is pathname"
+        #       if [ -d "$file" ]
+        #       then
+        #               echo "$file is a pathname, but is a directory"
+        #       else
+        #               if [ -x "$file" ]
+        #               then
+        #                       echo "$file is a pathname, not  a directoy, but is executable"
+#                       fi
+#               fi
+#       else
+#               FOUND=FALSE
+#
+#               for path in ${PATH//:/ }
+#               do
+#                       if [ -d "$path/$file" ]
+#                       then
+#                               FOUND=TRUE
+##                              echo "NOT FOUND file is directory"
+#                       else
+#                               if [ -x "$path/file" ]
+#                               then
+#                                       FOUND=TRUE
+#                                       echo "$path/$file"
+#                                       if [ $FINDALL = "FALSE" ]
+#                                       then
+#                                               break
+#                                       fi
+#                               fi
+#                       fi
+#               done
+#       fi
+#done
+
+

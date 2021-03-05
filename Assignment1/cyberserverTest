@@ -33,11 +33,11 @@ do
 
 	#SET THE COMMAND
 	command=$(/usr/bin/head -n  1 runsFile)
-	/usr/bin/sed -i.bak '1d' runsFile
+	sed -i.bak '1d' runsFile
 
 	#SET EXPECTED OUTPUT
 	expectedOutput="$(/usr/bin/head -n 1 expOutsFile)"
-	/usr/bin/sed -i.bak '1d' expOutsFile
+	sed -i.bak '1d' expOutsFile
 	cleanExpOutput=$(echo $expectedOutput | /usr/bin/tr -d '\011\012\013\014\015') 	
 
 	#SET THE PATH

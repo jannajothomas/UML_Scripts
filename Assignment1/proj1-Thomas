@@ -61,7 +61,7 @@ do
 
 		for path in $pathsToSearch
 		do
-			if [ -x "$path/$file" -a ! -d "$path/file" ]
+			if [ -x "$path/$file" -a ! -d "$path/$file" ]
 			then
 				echo "$path/$file"
 				FOUND="TRUE" 

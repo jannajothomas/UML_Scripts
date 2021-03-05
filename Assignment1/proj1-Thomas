@@ -53,8 +53,8 @@ do
 		FOUND=FALSE
 		export PATH
 		pathsToSearch=$(echo $PATH  | sed -e 's/^:/.:/' -e 's/::/:.:/' -e 's/:$/:./' -e 's/:/ /g')
-		for path in $pathsToSearch
 
+		for path in $pathsToSearch
 		do
 			if [ -x "$path/$file" -a ! -d "$path/file" ]
 			then
@@ -63,6 +63,7 @@ do
 
 				#
 				# File has been found. Break if only finding one				#
+				#
 
 				if [ $FINDALL = "FALSE" ]
 				then

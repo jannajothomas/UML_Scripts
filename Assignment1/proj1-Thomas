@@ -61,39 +61,28 @@ do
 		for path in $pathsToSearch
 
 		do
-			if [ -d "$path/$file" ]
-                        then    
-                                if [ $FINDALL = "FALSE" ]
-                                then    
-                                        echo NOT FOUND file is a directory
-                                	break
+			if [ -x "$path/$file" -a ! -d "$path/file" ]
+			then
+				echo "$path/$file"
+				FOUND="TRUE" 
 
-                                fi
-				FOUND="TRUE"
-                                DIRECTORY="TRUE"
-                        else
-				if [ -x "$path/$file" ]
+				#
+				# File has been found. Break if only finding one				#
+
+				if [ $FINDALL = "FALSE" ]
 				then
-					echo "$path/$file"
-					FOUND="TRUE" 
-				
-					if [ $FINDALL = "FALSE" ]
-					then
-						break
-					fi
+					break
 				fi
-			fi			
+			fi
 		done
 
+		#
+		# Report test results
+		#
+		
 		if [ $FOUND = "FALSE" ]
          	then     
-                   	if [ $DIRECTORY = "TRUE" ]
-			then
-				STRING="NOT FOUND $file is a directory"
-			else
-				STRING="NOT FOUND"
-			fi
-			echo $STRING
+			echo $file NOT FOUND
           	fi
 	fi
 done

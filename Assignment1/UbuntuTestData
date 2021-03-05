@@ -16,7 +16,7 @@ RAN    ==> mar1.sh ./tar
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./tar NOT FOUND
 
 PROGRAM OUTPUT  ==> ./tar not FOUND
 
@@ -72,7 +72,7 @@ RAN    ==> mar1.sh mar1.sh
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> mar1.sh NOT FOUND
 
 PROGRAM OUTPUT  ==> mar1.sh not FOUND
 
@@ -96,7 +96,7 @@ RAN    ==> mar1.sh skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> skekek not FOUND
 
@@ -108,7 +108,7 @@ RAN    ==> mar1.sh ./skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> ./skekek not FOUND
 
@@ -120,7 +120,7 @@ RAN    ==> mar1.sh ./class
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND (this is a directory)
+EXPECTED RESULT ==> ./class NOT FOUND
 
 PROGRAM OUTPUT  ==> ./class not FOUND
 
@@ -132,7 +132,7 @@ RAN    ==> mar1.sh no-read
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-read NOT FOUND
 
 PROGRAM OUTPUT  ==> no-read not FOUND
 
@@ -144,7 +144,7 @@ RAN    ==> mar1.sh ./no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> ./no-execute not FOUND
 
@@ -156,7 +156,7 @@ RAN    ==> mar1.sh no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> no-execute not FOUND
 
@@ -168,7 +168,7 @@ RAN    ==> mar1.sh any-old-file
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> any-old-file NOT FOUND
 
 PROGRAM OUTPUT  ==> any-old-file not FOUND
 
@@ -192,7 +192,7 @@ RAN    ==> mar1.sh ./tar
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./tar NOT FOUND
 
 PROGRAM OUTPUT  ==> ./tar not FOUND
 
@@ -272,7 +272,7 @@ RAN    ==> mar1.sh skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> skekek not FOUND
 
@@ -284,7 +284,7 @@ RAN    ==> mar1.sh ./skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> ./skekek not FOUND
 
@@ -296,7 +296,7 @@ RAN    ==> mar1.sh ./class
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND (this is a directory)
+EXPECTED RESULT ==> ./class NOT FOUND 
 
 PROGRAM OUTPUT  ==> ./class not FOUND
 
@@ -308,7 +308,7 @@ RAN    ==> mar1.sh no-read
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-read NOT FOUND
 
 PROGRAM OUTPUT  ==> no-read not FOUND
 
@@ -320,7 +320,7 @@ RAN    ==> mar1.sh ./no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> ./no-execute not FOUND
 
@@ -332,7 +332,7 @@ RAN    ==> mar1.sh no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> no-execute not FOUND
 
@@ -344,7 +344,7 @@ RAN    ==> mar1.sh any-old-file
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> any-old-file NOT FOUND
 
 PROGRAM OUTPUT  ==> any-old-file not FOUND
 
@@ -368,7 +368,7 @@ RAN    ==> mar1.sh ./tar
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./tar NOT FOUND
 
 PROGRAM OUTPUT  ==> ./tar not FOUND
 
@@ -448,7 +448,7 @@ RAN    ==> mar1.sh skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> skekek not FOUND
 
@@ -460,7 +460,7 @@ RAN    ==> mar1.sh ./skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> ./skekek not FOUND
 
@@ -472,7 +472,7 @@ RAN    ==> mar1.sh ./class
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND (this is a directory)
+EXPECTED RESULT ==> ./class NOT FOUND 
 
 PROGRAM OUTPUT  ==> ./class not FOUND
 
@@ -484,7 +484,7 @@ RAN    ==> mar1.sh no-read
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-read NOT FOUND
 
 PROGRAM OUTPUT  ==> no-read not FOUND
 
@@ -496,7 +496,7 @@ RAN    ==> mar1.sh ./no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> ./no-execute not FOUND
 
@@ -508,7 +508,7 @@ RAN    ==> mar1.sh no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> no-execute not FOUND
 
@@ -520,7 +520,7 @@ RAN    ==> mar1.sh any-old-file
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> any-old-file NOT FOUND
 
 PROGRAM OUTPUT  ==> any-old-file not FOUND
 
@@ -544,7 +544,7 @@ RAN    ==> mar1.sh ./tar
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./tar NOT FOUND
 
 PROGRAM OUTPUT  ==> ./tar not FOUND
 
@@ -624,7 +624,7 @@ RAN    ==> mar1.sh skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> skekek not FOUND
 
@@ -636,7 +636,7 @@ RAN    ==> mar1.sh ./skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> ./skekek not FOUND
 
@@ -648,7 +648,7 @@ RAN    ==> mar1.sh ./class
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND (this is a directory)
+EXPECTED RESULT ==> ./class NOT FOUND
 
 PROGRAM OUTPUT  ==> ./class not FOUND
 
@@ -660,7 +660,7 @@ RAN    ==> mar1.sh no-read
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-read NOT FOUND
 
 PROGRAM OUTPUT  ==> no-read not FOUND
 
@@ -672,7 +672,7 @@ RAN    ==> mar1.sh ./no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> ./no-execute not FOUND
 
@@ -684,7 +684,7 @@ RAN    ==> mar1.sh no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> no-execute not FOUND
 
@@ -696,7 +696,7 @@ RAN    ==> mar1.sh any-old-file
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> any-old-file NOT FOUND
 
 PROGRAM OUTPUT  ==> any-old-file not FOUND
 
@@ -720,7 +720,7 @@ RAN    ==> mar1.sh ./tar
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./tar NOT FOUND
 
 PROGRAM OUTPUT  ==> ./tar not FOUND
 
@@ -800,7 +800,7 @@ RAN    ==> mar1.sh skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> skekek not FOUND
 
@@ -812,7 +812,7 @@ RAN    ==> mar1.sh ./skekek
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./skekek NOT FOUND
 
 PROGRAM OUTPUT  ==> ./skekek not FOUND
 
@@ -824,7 +824,7 @@ RAN    ==> mar1.sh ./class
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND (this is a directory)
+EXPECTED RESULT ==> ./class NOT FOUND 
 
 PROGRAM OUTPUT  ==> ./class not FOUND
 
@@ -836,7 +836,7 @@ RAN    ==> mar1.sh no-read
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-read NOT FOUND
 
 PROGRAM OUTPUT  ==> no-read not FOUND
 
@@ -848,7 +848,7 @@ RAN    ==> mar1.sh ./no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> ./no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> ./no-execute not FOUND
 
@@ -860,7 +860,7 @@ RAN    ==> mar1.sh no-execute
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> no-execute NOT FOUND
 
 PROGRAM OUTPUT  ==> no-execute not FOUND
 
@@ -872,7 +872,7 @@ RAN    ==> mar1.sh any-old-file
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> any-old-file NOT FOUND
 
 PROGRAM OUTPUT  ==> any-old-file not FOUND
 
@@ -896,7 +896,7 @@ RAN    ==> mar1.sh x1banner
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> x1banner NOT FOUND
 
 PROGRAM OUTPUT  ==> x1banner not FOUND
 
@@ -908,7 +908,7 @@ RAN    ==> mar1.sh tcc2
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> tcc2 NOT FOUND
 
 PROGRAM OUTPUT  ==> tcc2 not FOUND
 
@@ -920,7 +920,7 @@ RAN    ==> mar1.sh tcc3
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> tcc3 NOT FOUND
 
 PROGRAM OUTPUT  ==> tcc3 not FOUND
 
@@ -932,7 +932,7 @@ RAN    ==> mar1.sh mar1.sh1
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> mar1.sh1 NOT FOUND
 
 PROGRAM OUTPUT  ==> mar1.sh1 not FOUND
 
@@ -984,21 +984,9 @@ RAN    ==> mar1.sh class
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND file is a directory
+EXPECTED RESULT ==> class NOT FOUND 
 
 PROGRAM OUTPUT  ==> class not FOUND
-
-
-
-PATH   ==> /opt/SUNWspro/bin:/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
-
-RAN    ==> mar1.sh -a tar
-
-RESULT ==> PASSED
-
-EXPECTED RESULT ==> /bin/tar /usr/lib/tar
-
-PROGRAM OUTPUT  ==> /bin/tar
 
 
 PATH   ==> /bin:/usr/local/bin
@@ -1008,19 +996,6 @@ RAN    ==> mar1.sh ls
 RESULT ==> PASSED
 
 EXPECTED RESULT ==> /bin/ls
-
-PROGRAM OUTPUT  ==> /bin/tar
-
-
-PATH   ==> /bin:/usr/local/bin:/usr/ucb
-
-RAN    ==> mar1.sh -a  cc
-
-RESULT ==> PASSED
-
-EXPECTED RESULT ==> /bin/cc
-
-/usr/ucb/cc
 
 PROGRAM OUTPUT  ==> /bin/tar
 
@@ -1053,7 +1028,7 @@ RAN    ==> mar1.sh fooblar
 
 RESULT ==> PASSED
 
-EXPECTED RESULT ==> NOT FOUND
+EXPECTED RESULT ==> fooblar NOT FOUND
 
 PROGRAM OUTPUT  ==> /bin/tar
 
@@ -1068,7 +1043,7 @@ EXPECTED RESULT ==> /bin/ksh
 
 /bin/sh
 
-NOT FOUND
+csh NOT FOUND
 
 /bin/bash
 

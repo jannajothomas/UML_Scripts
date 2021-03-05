@@ -87,7 +87,7 @@ do
 
 		if [ $FOUND = "FALSE" ]
          	then     
-                   	if [ $DIRECTORY = "TRUE"
+                   	if [ $DIRECTORY = "TRUE" ]
 			then
 				STRING="NOT FOUND $file is a directory"
 			else

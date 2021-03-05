@@ -1,0 +1,1075 @@
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh -a tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./tar not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh /bin/tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh tar ls sleep
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> mar1.sh not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> skekek not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./skekek not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./class
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND (this is a directory)
+
+PROGRAM OUTPUT  ==> ./class not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh no-read
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-read not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./no-execute not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-execute not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh any-old-file
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> any-old-file not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh -a tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./tar not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh /bin/tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh tar ls sleep
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> skekek not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./skekek not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./class
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND (this is a directory)
+
+PROGRAM OUTPUT  ==> ./class not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh no-read
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-read not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./no-execute not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-execute not FOUND
+
+
+
+PATH   ==> :/bin:/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh any-old-file
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> any-old-file not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh -a tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./tar not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh /bin/tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh tar ls sleep
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> skekek not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./skekek not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./class
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND (this is a directory)
+
+PROGRAM OUTPUT  ==> ./class not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh no-read
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-read not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh ./no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./no-execute not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-execute not FOUND
+
+
+
+PATH   ==> /bin::/usr/local/bin:/usr/bin/X11
+
+RAN    ==> mar1.sh any-old-file
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> any-old-file not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh -a tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh ./tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./tar not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh /bin/tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh tar ls sleep
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh ./mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> skekek not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh ./skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./skekek not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh ./class
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND (this is a directory)
+
+PROGRAM OUTPUT  ==> ./class not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh no-read
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-read not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh ./no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./no-execute not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-execute not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:
+
+RAN    ==> mar1.sh any-old-file
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> any-old-file not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh -a tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh ./tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./tar not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh /bin/tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh tar ls sleep
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+/bin/ls
+
+/bin/sleep
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh ./mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> ./mar1.sh
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> skekek not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh ./skekek
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./skekek not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh ./class
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND (this is a directory)
+
+PROGRAM OUTPUT  ==> ./class not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh no-read
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-read not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh ./no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> ./no-execute not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh no-execute
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> no-execute not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh any-old-file
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> any-old-file not FOUND
+
+
+
+PATH   ==> /opt/SUNWspro/bin:/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
+
+RAN    ==> mar1.sh ls
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/ls
+
+PROGRAM OUTPUT  ==> /bin/ls
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh x1banner
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> x1banner not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh tcc2
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> tcc2 not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh tcc3
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> tcc3 not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh mar1.sh1
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> mar1.sh1 not FOUND
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:/users/faculty/mrichard/example:.
+
+RAN    ==> mar1.sh "do it"
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /users/faculty/mrichard/example/do it
+
+PROGRAM OUTPUT  ==> /users/faculty/mrichard/example/do it
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:.
+
+RAN    ==> mar1.sh "/users/faculty/mrichard/example/do it"
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /users/faculty/mrichard/example/do it
+
+PROGRAM OUTPUT  ==> /users/faculty/mrichard/example/do it
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:/users/faculty/mrichard/example:.
+
+RAN    ==> mar1.sh "do it" ls
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /users/faculty/mrichard/example/do it
+
+/bin/ls
+
+PROGRAM OUTPUT  ==> /users/faculty/mrichard/example/do it
+
+/bin/ls
+
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/bin/X11:/users/faculty/mrichard/example:.
+
+RAN    ==> mar1.sh class
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND file is a directory
+
+PROGRAM OUTPUT  ==> class not FOUND
+
+
+
+PATH   ==> /opt/SUNWspro/bin:/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
+
+RAN    ==> mar1.sh -a tar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/tar /usr/lib/tar
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+PATH   ==> /bin:/usr/local/bin
+
+RAN    ==> mar1.sh ls
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/ls
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+PATH   ==> /bin:/usr/local/bin:/usr/ucb
+
+RAN    ==> mar1.sh -a  cc
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/cc
+
+/usr/ucb/cc
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+PATH   ==> /bin:/usr/local/bin
+
+RAN    ==> mar1.sh ./mar1.sh
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> ./mar1.sh
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+PATH   ==> /bin:/usr/local/bin
+
+RAN    ==> mar1.sh /bin/ls
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/ls
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+PATH   ==> /bin:/usr/local/bin
+ 
+RAN    ==> mar1.sh fooblar
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> NOT FOUND
+
+PROGRAM OUTPUT  ==> /bin/tar
+
+
+PATH   ==> /bin:/usr/local/bin
+ 
+RAN    ==> mar1.sh ksh sh csh bash
+
+RESULT ==> PASSED
+
+EXPECTED RESULT ==> /bin/ksh
+
+/bin/sh
+
+NOT FOUND
+
+/bin/bash
+
+PROGRAM OUTPUT  ==> /bin/tar

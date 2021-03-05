@@ -1,12 +1,10 @@
 #!/bin/bash
 
 FINDALL=FALSE
-#echo '$0'
-#echo  $0
 
-#echo '$1' $1
-#echo '$2' $2
-
+#
+# Process all options
+#
 
 while :
 do
@@ -15,12 +13,7 @@ do
 			shift
 			;;
 
-		-d)	DEBUG=TRUE
-			shift
-			;;
-
-
-		-h)	echo "Usage: $0 [-a] filenames"			#TODO
+		-h)	echo "Usage: $0 [-a] filenames"	
 			exit 0
 			;;
 		
@@ -29,136 +22,79 @@ do
 	esac
 done
 
-#echo command line arg item $1
-#shift
+#
+# Check all files from  the command line
+# 
 
-
-#echo dollar sign astrics is "$*"
-#echo "#@"
-#echo '#@'
 for file in "$@"
 do
-	# echo $file
 	#
-	# Special case if filename is pathname that exits
+	# If file is a pathname, search the path and verify not a directory and  is executable
 	#
+
 	if [[ "$file"  = */* ]]
 	then
-	#	$file=$(echo $file | sed 's|^./||g')
-#		echo  $file is a pathname
+
 		if [ -d "$file" ]
 		then
-			echo "NOT FOUND (this is a directory)"
+			echo "$file NOT FOUND (this is a directory)"
 			break
 		fi
+# can I get rid of  the -e?
 		if [ -e "$file" -a -x "$file" ]
 		then
 			echo $file
 		else
-			echo NOT FOUND
+			echo "$file NOT FOUND"
 		fi	
+	
+	#
+	# File is not a pathname.  Search  the items on the path in order
+	#
+	
 	else
-#		echo $file is not a pathname
 		FOUND=FALSE
-		
-		#
-		# Deal with special cases of path
-		# If lines start with a :, replace with .:
-		# If internal to the line is ::, replace with :.:
-		# If line ends with :, replace with :.
-		# Take out the colons to make a list of paths
+		DIRECTORY=FALSE
 
-		# for path in ${PATH//:/ }
-		PATH=$PATH:/usr/bin
 		export PATH
 		pathsToSearch=$(echo $PATH  | sed -e 's/^:/.:/' -e 's/::/:.:/' -e 's/:$/:./' -e 's/:/ /g')
 		for path in $pathsToSearch
-		do
-			if [ -x "$path/$file" ]
-			then
-				echo "$path/$file"
-				FOUND="TRUE" 
-				if [ $FINDALL = "FALSE" ]
-				then
-					break
-				fi
-			fi
 
+		do
 			if [ -d "$path/$file" ]
-			then
+                        then    
+                                if [ $FINDALL = "FALSE" ]
+                                then    
+                                        echo NOT FOUND file is a directory
+                                	break
+
+                                fi
 				FOUND="TRUE"
-				# echo NOT FOUND file is a directory
-				if [ $FINDALL = "FALSE" ]
+                                DIRECTORY="TRUE"
+                        else
+				if [ -x "$path/$file" ]
 				then
-					echo NOT FOUND file is a directory
-					break
-					
+					echo "$path/$file"
+					FOUND="TRUE" 
+				
+					if [ $FINDALL = "FALSE" ]
+					then
+						break
+					fi
 				fi
-			fi
+			fi			
 		done
+
 		if [ $FOUND = "FALSE" ]
          	then     
-                   	echo NOT FOUND
+                   	if [ $DIRECTORY = "TRUE"
+			then
+				STRING="NOT FOUND $file is a directory"
+			else
+				STRING="NOT FOUND"
+			fi
+			echo $STRING
           	fi
-
-
 	fi
-
-#	if [ $FOUND = "FALSE" ]
-#	then
-#		 echo NOT FOUND
-#	fi
-
 done
 
-#echo '$*'
-#echo "$*"
-#for file in "$*"
-#do
-#	echo $file
-#done
-
-
-
-#for file in "$*"
-#do
-#	echo $file
-#	echo	
-	#if grep -q 
-	# Is file pathname?
-	
-	#if [ -e "$file" ]		
-	#then
-	#	echo "File is pathname"
-	#	if [ -d "$file" ]
-	#	then
-	#		echo "$file is a pathname, but is a directory"
-	#	else
-	#		if [ -x "$file" ]
-	#		then
-	#			echo "$file is a pathname, not  a directoy, but is executable"
-#			fi
-#		fi
-#	else		
-#		FOUND=FALSE
-#		
-#		for path in ${PATH//:/ }
-#		do
-#			if [ -d "$path/$file" ]
-#			then
-#				FOUND=TRUE
-##				echo "NOT FOUND file is directory"
-#			else
-#				if [ -x "$path/file" ]
-#				then
-#					FOUND=TRUE
-#					echo "$path/$file"
-#					if [ $FINDALL = "FALSE" ]
-#					then
-#						break	
-#					fi
-#				fi
-#			fi
-#		done
-#	fi
-#done

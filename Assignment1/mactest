@@ -1,0 +1,75 @@
+#!/bin/sh
+
+# $usage inputFile
+
+inputFile=$1
+shift
+
+PATH=$PATH:/usr/bin
+
+# create paths file
+grep "^PATH" $inputFile | cut -d'>' -f2 | sed 's/^ *//g' > pathsFile
+
+# create runs file
+grep "^RAN" $inputFile | cut -d '>' -f2 | sed 's/^ *//g' | sed 's/mar1.sh/proj1-Thomas/g' > runsFile
+
+# create expected output file
+#           capture text between these words | remove the word program | replace all \n with spaces | remove text expected result | replace > with \n |
+sed  -n '/^EXPECTED RESULT ==>/,/^PROGRAM/p' $inputFile | sed 's/PROGRAM.*//g' |tr "\n" " "| sed 's/EXPECTED RESULT ==>/>/g' | tr ">" "\n" | sed 's/^[ \t]*//;s/[ \t]*$//' | grep -v -e '^$' | sed 's/mar1.sh/proj1-Thomas/g' > expOutsFile
+
+
+testNumber=1
+testsPassed=0
+testsFailed=0
+
+filename='pathsFile'
+while read lineInPathsFile
+do
+	#echo "PLACE1 ... $PATH"
+	#export PATH=$PATH:/usr/bin
+	# export PATH
+	echo "TEST $testNumber ------------------------"
+	#echo "PLACE2 > $PATH"
+
+	#SET THE COMMAND
+	command=$(/usr/bin/head -n  1 runsFile)
+	/usr/bin/sed -i.bak '1d' runsFile
+
+	#SET EXPECTED OUTPUT
+	expectedOutput="$(/usr/bin/head -n 1 expOutsFile)"
+	/usr/bin/sed -i.bak '1d' expOutsFile
+	cleanExpOutput=$(echo $expectedOutput | /usr/bin/tr -d '\011\012\013\014\015') 	
+
+	#SET THE PATH
+ 	export PATH=$lineInPathsFile
+
+	#####################PRINT REPORT########################################
+	echo "PATH      		==> $PATH"
+	echo "RAN                     ==> $command"
+	echo "EXPECTED RESULT   	==> $cleanExpOutput"
+	programOutput=$(eval "./$command")
+	cleanProgOutput=$(echo $programOutput | /usr/bin/tr -d '\011\012\013\014\015')
+	echo "PROGRAM OUTPUT          ==> $cleanProgOutput"
+	
+	if [ "$cleanProgOutput" = "$cleanExpOutput" ]	
+	then
+		echo "RESULT 			==> PASSED"
+		testsPassed=$((testsPassed+1))
+	else
+		echo "RESULT 			==> FAILED"
+		testsFailed=$((testsFailed+1))
+	fi
+	echo
+	# echo "Line no $n : $line"
+	testNumber=$((testNumber+1))
+done < $filename
+
+
+echo "$testsPassed tests passed"
+echo  "$testsFailed tests failed"
+
+#loop through all the samples
+	#set the path
+	#execute the program
+	#compare output
+	#report passed or failed`

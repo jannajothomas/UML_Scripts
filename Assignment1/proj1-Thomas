@@ -51,7 +51,12 @@ do
 	else
 		
 		FOUND=FALSE
-		export PATH
+		
+		#
+		# Without changing system $PATH
+		# Make list of search paths | fix leading :      fix middle ::  fix trailing : remove :'s
+		#
+
 		pathsToSearch=$(echo $PATH  | sed -e 's/^:/.:/' -e 's/::/:.:/' -e 's/:$/:./' -e 's/:/ /g')
 
 		for path in $pathsToSearch

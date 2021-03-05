@@ -28,6 +28,7 @@ done
 
 for file in "$@"
 do
+
 	#
 	# If file is a pathname, search the path and verify not a directory and  is executable
 	#
@@ -35,17 +36,12 @@ do
 	if [[ $file  = */* ]]
 	then
 
-		if [ -d $file ]
-		then
-			echo $file NOT FOUND
-			break
-		fi
-
-		if [ -x "$file" ]
+		if [ -x "$file" -a ! -d "$file" ]
 		then
 			echo $file
 		else
 			echo $file NOT FOUND
+	
 		fi	
 	
 	#
@@ -53,9 +49,8 @@ do
 	#
 	
 	else
+		
 		FOUND=FALSE
-		DIRECTORY=FALSE
-
 		export PATH
 		pathsToSearch=$(echo $PATH  | sed -e 's/^:/.:/' -e 's/::/:.:/' -e 's/:$/:./' -e 's/:/ /g')
 		for path in $pathsToSearch

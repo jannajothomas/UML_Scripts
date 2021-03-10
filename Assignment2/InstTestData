@@ -1,0 +1,109 @@
+RAN    ==> mar2.sh :
+RESULT ==>  PASSED
+EXPECTED RESULT ==> .
+PROGRAM OUTPUT  ==> .
+
+RAN    ==> mar2.sh : .
+RESULT ==>  PASSED
+EXPECTED RESULT ==> .
+PROGRAM OUTPUT  ==> .
+
+RAN    ==> mar2.sh apple orange pear peach
+RESULT ==>  PASSED
+EXPECTED RESULT ==> apple:orange:pear:peach
+PROGRAM OUTPUT  ==> apple:orange:pear:peach
+
+RAN    ==> mar2.sh x xxx xxx xxxx xxxxx x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx
+RESULT ==>  PASSED
+EXPECTED RESULT ==> x:xxx:xxxx:xxxxx:xx:yx:yxx:yxxx:yxxxx:yxxxxx
+PROGRAM OUTPUT  ==> x:xxx:xxxx:xxxxx:xx:yx:yxx:yxxx:yxxxx:yxxxxx
+
+RAN    ==> mar2.sh :a b c
+RESULT ==>  PASSED
+EXPECTED RESULT ==> .:a:b:c
+PROGRAM OUTPUT  ==> .:a:b:c
+
+RAN    ==> mar2.sh a :b c
+RESULT ==>  PASSED
+EXPECTED RESULT ==> a:.:b:c
+PROGRAM OUTPUT  ==> a:.:b:c
+
+RAN    ==> mar2.sh a b: c
+RESULT ==>  PASSED
+EXPECTED RESULT ==> a:b:.:c
+PROGRAM OUTPUT  ==> a:b:.:c
+
+RAN    ==> mar2.sh a b::c
+RESULT ==>  PASSED
+EXPECTED RESULT ==> a:b:.:c
+PROGRAM OUTPUT  ==> a:b:.:c
+
+RAN    ==> mar2.sh a b c:
+RESULT ==>  PASSED
+EXPECTED RESULT ==> a:b:c:.
+PROGRAM OUTPUT  ==> a:b:c:.
+
+RAN    ==> mar2.sh :a b c a b c . :a b c a b
+RESULT ==>  PASSED
+EXPECTED RESULT ==> .:a:b:c
+PROGRAM OUTPUT  ==> .:a:b:c
+
+RAN    ==> mar2.sh aa bb: c a b c
+RESULT ==>  PASSED
+EXPECTED RESULT ==> aa:bb:.:c:a:b
+PROGRAM OUTPUT  ==> aa:bb:.:c:a:b
+
+RAN    ==> mar2.sh a b::c:d a b c . :a b c a b
+RESULT ==>  PASSED
+EXPECTED RESULT ==> a:b:.:c:d
+PROGRAM OUTPUT  ==> a:b:.:c:d
+
+RAN    ==> mar2.sh a b c: a b c . :a b c a b
+RESULT ==>  PASSED
+EXPECTED RESULT ==> a:b:c:.
+PROGRAM OUTPUT  ==> a:b:c:.
+
+RAN    ==> mar2.sh /usr/bin /bin
+RESULT ==>  PASSED
+EXPECTED RESULT ==> /usr/bin:/bin
+PROGRAM OUTPUT  ==> /usr/bin:/bin
+
+RAN    ==> mar2.sh /opt/SUNWspro/bin:/usr/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin /opt/SUNWspro/bin:/usr/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
+RESULT ==>  PASSED
+EXPECTED RESULT ==> /opt/SUNWspro/bin:/usr/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
+PROGRAM OUTPUT  ==> /opt/SUNWspro/bin:/usr/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
+
+RAN    ==> mar2.sh mar mary mar mark mary martin
+RESULT ==>  PASSED
+EXPECTED RESULT ==> mar:mary:mark:martin
+PROGRAM OUTPUT  ==> mar:mary:mark:martin
+
+RAN    ==> mar2.sh :mar mary mar mark mary martin /usr/bin:/bin:/usr/local/bin:.
+RESULT ==>  PASSED
+EXPECTED RESULT ==> .:mar:mary:mark:martin:/usr/bin:/bin:/usr/local/bin
+PROGRAM OUTPUT  ==> .:mar:mary:mark:martin:/usr/bin:/bin:/usr/local/bin
+
+RAN    ==> mar2.sh martin mar mary mar mark mary martin:
+RESULT ==>  PASSED
+EXPECTED RESULT ==> martin:mar:mary:mark:.
+PROGRAM OUTPUT  ==> martin:mar:mary:mark:.
+
+RAN    ==> mar2.sh x yx yxx . yx xx yxxx xxxx yxxxxx: x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx
+RESULT ==>  PASSED
+EXPECTED RESULT ==> x:yx:yxx:.:xx:yxxx:xxxx:yxxxxx:xxx:xxxxx:yxxxx
+PROGRAM OUTPUT  ==> x:yx:yxx:.:xx:yxxx:xxxx:yxxxxx:xxx:xxxxx:yxxxx
+
+RAN    ==> mar2.sh . yx xx yxxx xxxx yxxxxx: x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx
+RESULT ==>  PASSED
+EXPECTED RESULT ==> .:yx:xx:yxxx:xxxx:yxxxxx:x:xxx:xxxxx:yxx:yxxxx
+PROGRAM OUTPUT  ==> .:yx:xx:yxxx:xxxx:yxxxxx:x:xxx:xxxxx:yxx:yxxxx
+
+RAN    ==> mar2.sh yx xx yxxx xxxx yxxxxx x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx .
+RESULT ==>  PASSED
+EXPECTED RESULT ==> yx:xx:yxxx:xxxx:yxxxxx:x:xxx:xxxxx:yxx:yxxxx:.
+PROGRAM OUTPUT  ==> yx:xx:yxxx:xxxx:yxxxxx:x:xxx:xxxxx:yxx:yxxxx:.
+
+
+PASSED ==> 21         100%      
+FAILED ==> 0          0%        
+

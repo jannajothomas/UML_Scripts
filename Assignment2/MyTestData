@@ -1,0 +1,63 @@
+RAN proj2-Thomas :
+EXP .
+
+RAN proj2-Thomas : .
+EXP .
+
+RAN proj2-Thomas apple orange pear peach
+EXP apple:orange:pear:peach
+
+RAN proj2-Thomas x xxx xxx xxxx xxxxx x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx
+EXP x:xxx:xxxx:xxxxx:xx:yx:yxx:yxxx:yxxxx:yxxxxx
+
+RAN proj2-Thomas :a b c
+EXP .:a:b:c
+
+RAN proj2-Thomas a :b c
+EXP a:.:b:c
+
+RAN proj2-Thomas a b: c
+EXP a:b:.:c
+
+RAN proj2-Thomas a b::c
+EXP a:b:.:c
+
+RAN proj2-Thomas a b c:
+EXP a:b:c:.
+
+RAN proj2-Thomas :a b c a b c . :a b c a b
+EXP .:a:b:c
+
+RAN proj2-Thomas aa bb: c a b c
+EXP aa:bb:.:c:a:b
+
+RAN proj2-Thomas a b::c:d a b c . :a b c a b
+EXP a:b:.:c:d
+
+RAN proj2-Thomas a b c: a b c . :a b c a b
+EXP a:b:c:.
+
+RAN proj2-Thomas /usr/bin /bin
+EXP /usr/bin:/bin
+
+RAN proj2-Thomas /opt/SUNWspro/bin:/usr/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin /opt/SUNWspro/bin:/usr/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
+EXP /opt/SUNWspro/bin:/usr/bin:/usr/dt/bin:/usr/openwin/bin:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:.:/usr/ccs/bin:/usr/ucb:/usr/platform/SUNW,Sun-Fire-V240/sbin:/sbin:/usr/sbin:/usr/local/sbin:/usr/sadm/bin:/usr/lib:/usr/platform/sun4u/sbin
+
+RAN proj2-Thomas mar mary mar mark mary martin
+EXP mar:mary:mark:martin
+
+RAN proj2-Thomas :mar mary mar mark mary martin /usr/bin:/bin:/usr/local/bin:.
+EXP .:mar:mary:mark:martin:/usr/bin:/bin:/usr/local/bin
+
+RAN proj2-Thomas martin mar mary mar mark mary martin:
+EXP martin:mar:mary:mark:.
+
+RAN proj2-Thomas x yx yxx . yx xx yxxx xxxx yxxxxx: x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx
+EXP x:yx:yxx:.:xx:yxxx:xxxx:yxxxxx:xxx:xxxxx:yxxxx
+
+RAN proj2-Thomas . yx xx yxxx xxxx yxxxxx: x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx
+EXP .:yx:xx:yxxx:xxxx:yxxxxx:x:xxx:xxxxx:yxx:yxxxx
+
+RAN proj2-Thomas yx xx yxxx xxxx yxxxxx x:xx:xxx:xxxx:xxxxx yx:yxx:yxxx:yxxxx:yxxxxx .
+EXP yx:xx:yxxx:xxxx:yxxxxx:x:xxx:xxxxx:yxx:yxxxx:.
+

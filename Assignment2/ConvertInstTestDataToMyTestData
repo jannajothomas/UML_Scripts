@@ -1,0 +1,22 @@
+#!/bin/sh
+
+inputFile=$1
+PATH=/usr/bin
+{
+while read line
+do
+	
+	if [[ "$line" == "RAN"* ]]
+	then
+		echo "$line" | sed 's/^RAN    ==> /RAN /g' | sed 's/mar2.sh/proj2-Thomas/g'
+	fi
+
+	if [[ "$line" == "EXPECTED"* ]]
+	then
+	
+		echo "$line" | sed 's/^EXPECTED RESULT ==> /EXP /g' | sed 's/mar2.sh/proj2-Thomas/g'
+		echo
+	fi
+	
+done < $inputFile
+} > MyTestData

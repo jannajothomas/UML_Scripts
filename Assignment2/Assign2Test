@@ -1,0 +1,45 @@
+#!/bin/sh
+
+inputFile=$1
+
+testNumber=1
+testsPassed=0
+testsFailed=0
+
+command=""
+programOutput=""
+expectedOutput=""
+
+echo "-----------------------------------------------------------"
+while read line
+do
+	if [[ "$line" == "RAN"* ]]
+	then
+		echo "...................Test $testNumber .............."
+		command=$(echo "$line" | sed 's/^RAN //')
+		echo "RAN	==> $command" 
+		programOutput=$(eval "./$command" | tr -d '\011\012\013\014\015')
+		echo "PROGRAM OUTPUT  ==> $programOutput"
+	fi
+
+	if [[ "$line" == "EXP"* ]]
+	then
+		testNumber=$((testNumber+1))
+		expectedOutput=$(echo "$line" | sed 's/^EXP //' | tr -d '\011\012\013\014\015')
+		echo "EXPECTED RESULT ==> $expectedOutput"
+	
+		if [ "$programOutput" = "$expectedOutput" ]
+		then
+			echo "RESULT		==> PASSED"
+			testsPassed=$((testsPassed+1))
+		else
+			echo "RESULT 		==> FAILED"
+			testsFailed=$((testsFailed+1))
+		fi
+		echo
+	fi
+
+done<$inputFile
+
+echo "$testsPassed tests passed"
+echo "$testsFailed tests failed"

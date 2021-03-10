@@ -1,0 +1,29 @@
+#!/bin/sh
+
+#
+# A shell script to concatente lists together, and output the resulting list
+#
+# The input to the script will be colon or space seperated lists and the output will be a colon sepereated list with the original order preserved and all redundant items removed.
+
+newList=
+
+#                      remove hidden chars		leading :       internal  ::   trailing :          space:      :space          remove all :
+for item in `echo "$@" | tr -d '\011\012\013\014\015' | sed -e 's/^:/ . /' -e 's/::/ . /' -e 's/:$/ . /' -e 's/ :/ . /g' -e 's/: / . /g' -e 's/:/ /g' `
+    do
+  
+    case $newList in
+    "")					#First time through, newList is empty
+	 newList="$item"		#assign the value of item to newList
+    ;;
+    
+    $item|$item:*|*:$item:*|*:$item)    # if newList  has item as: only term|first term|middle term|last term
+       continue				# do nothing.  Item already is on the list
+        ;;
+    *)					# If NP is not on the list,
+	newList="$newList:$item"	# Put it at the end of the list
+	;;
+        esac
+    done
+echo "$newList"				#print final list
+
+

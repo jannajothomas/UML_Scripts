@@ -1,0 +1,30 @@
+#!/bin/bash
+
+
+
+CD='C D'
+EF='E F'
+GH='G H'
+JK='J    K'
+ab='a b'
+CCD='C-D'
+if [[ -e "$1/$CD" ]]
+then
+	rm  -r "$1/$CD"
+fi
+
+if [[ -e "$1/$CCD" ]]
+then
+	rm -r "$1/$CCD"
+fi
+
+mkdir "$1/$CD"
+mkdir "$1/$CD/$EF"
+mkdir "$1/$CD/$EF/$GH"
+mkdir "$1/$CD/$EF/$GH/$JK"
+touch "$1/$CD/$EF/$GH/$JK/$ab"
+touch "$1/$CD/$EF/$GH/$ab"
+touch "$1/$CD/$EF/$ab"
+touch "$1/$CD/$ab"
+
+echo "Created Clean Test Directory"

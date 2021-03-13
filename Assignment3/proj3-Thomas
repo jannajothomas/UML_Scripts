@@ -1,0 +1,194 @@
+#!/usr/local/bin/ksh
+
+USAGE="Usage: 
+$0 -f directory
+$0 -d  directory
+$0 -d -f directory
+
+-f rename files 
+-d rename directories 
+"
+
+usage ()
+    {
+    print -u2 "$USAGE"
+    exit 1
+    }
+
+pathname ()
+    {
+    # function provided for the student
+    print -- "${1%/*}"
+    }
+
+basename ()
+    {
+    # function provided for the student
+    print -- "${1##*/}"
+    }
+
+find_dirs ()
+    {
+    # function provided for the student
+    find "$1" -depth -type d -name '* *' -print
+    }
+
+find_files ()
+    {
+    # function provided for the student
+    find "$1" -depth -type f -name '* *' -print
+    }
+
+my_rename()
+    {
+	# function renames $1 to $2
+
+	# check if the directory where $1 resided is writeable, if not then report an error
+	if [ !  -w "$1" ]
+	then
+		echo "Error: $1 is not writeable"
+		exit 1
+	fi
+
+	# check if "$2" exists, if so report an error and exit function
+	if [ -e "$2"  ]
+	then
+		echo "Error: $2 already exists"
+		exit 1
+	fi
+
+	mv "$1" "$2"
+
+	# check the status of the mv command and report any errors
+
+    }
+
+fix_dirs ()
+    {
+	
+	OLDIFS=$IFS
+	IFS=$'\n'
+
+	# change positional parameters to list of directories
+	set `find_dirs "$1"`
+	
+	for dirName in "$@"
+	do
+		# seperate the pathname and set its elements as positinal parameters
+		IFS=/
+		set $dirName
+		lastTerm="${@: -1}"
+		
+		#get the new text for the dir name
+		modLastTerm=$(echo $lastTerm | sed 's/ /-/g')
+		IFS=$OLDIFS		
+		newDirName=$(echo "$dirName" | sed "s/$lastTerm/$modLastTerm/g")
+
+		my_rename "$dirName" "$newDirName"
+	done
+	IFS=$OLDIFS	
+    
+	}
+
+fix_files ()
+    {
+	OLDIFS=$IFS
+	IFS=$'\n'
+	
+	files=`find_files "$1"`
+	if [ ! -z "$files" ]
+	then
+		set `find_files "$1"`
+		for fileName in "$@"
+		do
+			# seperate the pathname and set its elements as positinal parameters
+                 	IFS=/
+                 	set $fileName
+                 	lastTerm="${@: -1}"
+                 	#get the new text for the file name
+                 	modLastTerm=$(echo $lastTerm | sed 's/ /-/g')
+         		IFS=$OLDIFS
+        		newFileName=$(echo "$fileName" | sed "s/$lastTerm/$modLastTerm/g")
+         		my_rename "$fileName" "$newFileName"
+
+		done
+	else
+		my_rename "$1"
+	fi
+	IFS=$OLDIFS
+    }
+
+WFILE=
+WDIR=
+DIR=
+
+if [ "$#" -eq 0 ]
+   then
+   	usage
+   fi
+
+while [ $# -gt 0 ] 
+    do
+    case $1 in
+    -d)
+        WDIR=1
+        ;;
+    -f)
+        WFILE=1
+        ;;
+    -*)
+        usage 
+        ;;
+    *)
+	if [ -d "$1" ]
+	    then
+	    DIR="$1"
+	else
+	    print -u2 "$1 does not exist ..."
+	    exit 1
+	    fi
+	;;
+    esac
+    shift
+    done
+
+	# if both -f and -d are not specified, print a message and exit
+	if [ "$WDIR" = "" -a "$WFILE" = "" ]
+	then
+		echo "Error: -f or -d must be specified"
+		usage
+	fi
+			
+	# if the directory specified is . or .. print an error message and exit 
+	if [ "$DIR" = "." -o "$DIR" = ".." ]
+	then
+		echo "Error: "." or ".." are not valid directories"
+		usage
+	fi
+
+	# if the Directory specified is the current directory, print a error message and exit
+	if [ "$DIR" = "$PWD" ]
+	then
+		echo "Error: current directory is not a valid directory"
+		usage
+	fi
+
+							
+	# if the directory was not specified, print a message and exit
+	if [ "$DIR" = "" ]
+	then
+		echo "Error: a directory must be specified"
+		usage
+	fi
+
+if [ "$WDIR" -a "$WFILE" ]
+    then
+    fix_files "$DIR"
+    fix_dirs "$DIR"
+elif [ "$WDIR" ]
+    then
+    fix_dirs "$DIR"
+elif [ "$WFILE" ]
+    then
+    fix_files "$DIR"
+    fi

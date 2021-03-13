@@ -1,0 +1,65 @@
+
+TestDir=$1
+ReadOnlyDir=$2
+ScriptName=$3
+
+DELIMETER="......................................."
+
+PATH=$PATH:$PWD
+echo
+echo
+echo
+echo '###############################################################'
+echo "Test Name		$0"
+echo "Test Dir	 	$1"  
+echo "Read Only Dir	$2" 
+echo "Script Name	$3" 
+
+echo "$DELIMETER setting up for test"
+	createTestDirectory $TestDir
+
+	echo "$DELIMETER printing Test Directory"
+	echo "`find $TestDir`"
+
+echo "$DELIMETER Running script with no args 		Test 1"
+	echo `"$ScriptName"`
+
+echo "$DELIMETER Running script with no options 		Test 2"
+	echo `"$ScriptName" "$TestDir"`
+
+echo "$DELIMETER Running script with directory .  	Test 3"
+	echo `"$ScriptName" -d "."`
+
+echo "$DELIMETER Running script with directory .. 	Test 4"
+	echo `"$ScriptName" -d '..'`
+
+echo "$DELIMETER Running script with current directory 	Test 5"
+	echo `"$ScriptName" -d "$PWD"`
+
+echo "$DELIMETER Running script with no directory 	Test 6"
+	echo `"$ScriptName" -d`
+
+echo "$DELIMETER Running script on directory		Test 7"
+	echo `"$ScriptName" -d "$TestDir"` 
+	echo "`find $TestDir`"
+
+echo "$DELIMETER Running script on files 		Test 8"
+	createTestDirectory $TestDir
+	echo `"$ScriptName" -f "$TestDir"`
+	echo "`find $TestDir`"
+ 
+echo "$DELIMETER Changing files and directories		Test 9"
+	createTestDirectory $TestDir
+  	echo `"$ScriptName" -f -d "$TestDir"`
+  	echo "`find $TestDir`"
+
+
+echo "$DELIMETER Running script on read only directory Test 10"
+	echo `"$ScriptName" -f "$ReadOnlyDir"`
+
+echo "$DELIMETER Rename to file that exists 		Test 11"
+	echo `"$ScriptName" -f "$TestDir"`
+
+
+
+

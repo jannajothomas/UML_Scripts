@@ -1,0 +1,228 @@
+#!/bin/bash
+
+UUT=$1
+TestDir=testDirectory
+PATH=$PATH:$PWD
+DELIMETER="............................................."
+TESTNUM=1
+testsPassed=0
+testsFailed=0
+
+if [ ! -e "$TestDir"]
+then
+	mkdir "$TestDir"
+fi
+
+if [ ! -e ReadOnlyDir ]
+then
+	mkdir ReadOnlyDir
+fi
+chmod +w ReadOnlyDir
+
+if [ ! -e ReadOnlyFile ]
+then
+	touch "ReadOnlyDir/C D"
+	chmod -w "ReadOnlyDir/C D"
+fi
+ReadOnlyFile="ReadOnlyDir/C D"
+chmod -w ReadOnlyDir
+
+if [ ! -e dupFileDir ]
+then
+	mkdir dupFileDir
+	mkdir "dupFileDir/Z Z"
+	mkdir "dupFileDir/Z-Z"
+	touch "dupFileDir/Z Z/Y Y"
+	touch "dupFileDir/Z Z/Y-Y"
+fi
+
+USAGE="Usage: 
+./$UUT -f directory
+./$UUT -d directory
+./$UUT -d -f directory
+
+-f rename files 
+-d rename directories"
+
+echo
+echo
+echo '########################################################################'
+echo "Test Name		$0"
+echo "Script Name		$UUT"
+echo "Test Directory		$TestDir"
+echo
+
+createTestDirectory()
+	{
+
+	CD='C D'
+	EF='E F'
+	GH='G H'
+	JK='J    K'  
+	ab='a b'
+	CCD='C-D'
+	if [[ -e "$1" ]]
+	then
+	        rm  -r "$1"
+	fi
+
+	mkdir "$1"
+	mkdir "$1/$CD"
+	mkdir "$1/$CD/$EF"
+	mkdir "$1/$CD/$EF/$GH"
+	mkdir "$1/$CD/$EF/$GH/$JK"
+	touch "$1/$CD/$EF/$GH/$JK/$ab"
+	touch "$1/$CD/$EF/$GH/$ab"
+	touch "$1/$CD/$EF/$ab"
+	touch "$1/$CD/$ab"
+
+	echo "Created Clean Test Directory"
+	}
+
+runTest()
+	{
+	echo $DELIMETER $1: Test $TESTNUM
+	echo running :$UUT $2 $3: 
+	
+
+	output=$($UUT $2 $3 2>&1 )
+	if [ -n "$output" ]
+	then
+		compareOutput "$output" "$4"
+	fi
+	#echo output is 	
+	#echo "$output"
+	#echo expected output
+	#echo "$3"	
+
+	#if [ "$output" = "$3" ]
+	#then
+	#	echo "$DELIMETER PASS"
+	#	testsPassed=$((testsPassed+1))
+	#else
+	#	echo "$DELIMETER		FAIL"
+	#	testsFailed=$((testsFailed+1))
+	#fi
+	#TESTNUM=$((TESTNUM+1))
+	}
+
+compareOutput()
+	{
+	echo comparing-----------------------------
+	echo "$2"
+	echo to-----------------------------------
+	echo "$1"
+	if [ "$1" = "$2" ]
+          then    
+                  echo "$DELIMETER PASS"
+                  testsPassed=$((testsPassed+1))
+          else    
+                  echo "$DELIMETER FAIL"
+                  testsFailed=$((testsFailed+1))
+          fi
+          TESTNUM=$((TESTNUM+1))
+
+	}
+
+runTest "Running Script with no args" "" "" "$USAGE"
+
+createTestDirectory $TestDir
+expout="Error: -f or -d must be specified
+$USAGE"
+runTest "Running Script with no options" "" "$TestDir" "$expout"
+
+expout="Error: . or .. are not valid directories
+$USAGE"
+runTest "Running script with directory ." "-d" " ." "$expout"
+
+runTest "Running script with directory .." "-d"  ".." "$expout"
+
+expout="Error: current directory is not a valid directory
+$USAGE"
+runTest "Running script with current directory" "-d" "$PWD" "$expout"
+
+expout="Error: a directory must be specified
+$USAGE"
+runTest "Running script with no directory"  "-d" "" "$expout"
+
+expout="testDirectory
+testDirectory/C-D
+testDirectory/C-D/E-F
+testDirectory/C-D/E-F/G-H
+testDirectory/C-D/E-F/G-H/J----K
+testDirectory/C-D/E-F/G-H/J----K/a b
+testDirectory/C-D/E-F/G-H/a b
+testDirectory/C-D/E-F/a b
+testDirectory/C-D/a b"
+runTest "Running script on directory" "-d" "$TestDir" "" 
+compareOutput "`find $TestDir`" "$expout"
+
+createTestDirectory $TestDir
+expout="testDirectory
+testDirectory/C D
+testDirectory/C D/E F
+testDirectory/C D/E F/a-b
+testDirectory/C D/E F/G H
+testDirectory/C D/E F/G H/a-b
+testDirectory/C D/E F/G H/J    K
+testDirectory/C D/E F/G H/J    K/a-b
+testDirectory/C D/a-b"
+runTest "Running script on files" "-f" "$TestDir" ""  
+compareOutput "`find $TestDir`" "$expout"
+
+createTestDirectory $TestDir
+expout="testDirectory
+testDirectory/C-D
+testDirectory/C-D/E-F
+testDirectory/C-D/E-F/G-H
+testDirectory/C-D/E-F/G-H/a-b
+testDirectory/C-D/E-F/G-H/J----K
+testDirectory/C-D/E-F/G-H/J----K/a-b
+testDirectory/C-D/E-F/a-b
+testDirectory/C-D/a-b"
+runTest "Running script on directory and files" "-d -f" "$TestDir" ""  
+compareOutput "`find $TestDir`" "$expout"
+
+expout="Error: directory ReadOnlyDir is not writeable"
+runTest "Running script on read-only directory" "-d" "ReadOnlyDir" "$expout"
+
+expout="Error: file $ReadOnlyFile is not writeable"
+runTest "Running script on read only file" "-f" "ReadOnlyDir" "$expout"
+
+expout="Error: file $ReadOnlyFile is not writeable"
+runTest "Running script on read only file and directory" "-f -d" "ReadOnlyDir" "$expout"
+
+expout="Error: file $ReadOnlyFile is not writeable"
+runTest "Running script on read only file and directory" "-d -f" "ReadOnlyDir" "$expout"
+
+expout="Error: dupFileDir/Z Z/Y-Y already exists"
+runTest "Running script to rename to a file that exists" "-f" "dupFileDir" "$expout"
+
+expout="Error: dupFileDir/Z-Z already exists"
+runTest "Running script to rename to a dir that exists" "-d" "dupFileDir" "$expout"
+
+echo "$testsPassed tests passed"
+echo "$testsFailed tests failed"
+
+echo "Running cleanup"
+
+if [ -e "ReadOnlyDir" ]
+then
+	echo removing "ReadOnlyDir" 
+	chmod +w ReadOnlyDir
+	chmod +w "ReadOnlyDir/C D"
+	rm -r ReadOnlyDir
+fi
+
+if [ -e "dupFileDir" ]
+then
+	echo removing "dupFileDir"
+	rm -r dupFileDir
+fi
+
+if [ -e testDirectory ]
+then
+	echo removing testDirectory
+	rm -r testDirectory
+fi
+echo done

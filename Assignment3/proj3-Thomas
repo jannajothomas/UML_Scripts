@@ -2,11 +2,11 @@
 
 USAGE="Usage: 
 $0 -f directory
-$0 -d  directory
+$0 -d directory
 $0 -d -f directory
 
 -f rename files 
--d rename directories 
+-d rename directories
 "
 
 usage ()
@@ -43,10 +43,16 @@ my_rename()
     {
 	# function renames $1 to $2
 
-	# check if the directory where $1 resided is writeable, if not then report an error
-	if [ !  -w "$1" ]
+	# if $1 is in a directory that is not writeable
+	if [ -d "$1" -a ! -w "$1" ]
 	then
-		echo "Error: $1 is not writeable"
+		echo Error: directory $1 is not writeable
+		exit 1
+	fi
+
+	if [ ! -w "$1" ]
+	then
+		echo Error: file "$1" is not writeable
 		exit 1
 	fi
 
@@ -56,36 +62,48 @@ my_rename()
 		echo "Error: $2 already exists"
 		exit 1
 	fi
-
+	
 	mv "$1" "$2"
-
-	# check the status of the mv command and report any errors
-
+	if [ $? -ne 0 ]
+	then
+    		echo "move was not successful"
+	fi
     }
 
 fix_dirs ()
-    {
-	
+    {	
 	OLDIFS=$IFS
 	IFS=$'\n'
-
-	# change positional parameters to list of directories
-	set `find_dirs "$1"`
 	
-	for dirName in "$@"
-	do
-		# seperate the pathname and set its elements as positinal parameters
-		IFS=/
-		set $dirName
-		lastTerm="${@: -1}"
-		
-		#get the new text for the dir name
-		modLastTerm=$(echo $lastTerm | sed 's/ /-/g')
-		IFS=$OLDIFS		
-		newDirName=$(echo "$dirName" | sed "s/$lastTerm/$modLastTerm/g")
+	#Make sure at least one argument was sent
+	dirs=`find_dirs "$1"`
+	if [ -n "$dirs" ]
+	then
+		set `find_dirs "$1"`
+		for dirName in "$@"
+		do
+			# seperate the pathname and set its elements as positinal parameters
+			IFS=/
+			set $dirName
+			lastTerm="${@: -1}"
+			
+			# get the new text for the dir name
+			modLastTerm=$(echo $lastTerm | sed 's/ /-/g')
+			
+			IFS=$OLDIFS		
 
-		my_rename "$dirName" "$newDirName"
-	done
+			# Assemble new dir name
+			newDirName=$(echo "$dirName" | sed "s/$lastTerm/$modLastTerm/g")
+			
+			# Rename file
+			my_rename "$dirName" "$newDirName"
+		done
+	
+	#Send value to my_rename for error catching
+	else
+		my_rename "$1"
+	fi
+
 	IFS=$OLDIFS	
     
 	}
@@ -94,9 +112,10 @@ fix_files ()
     {
 	OLDIFS=$IFS
 	IFS=$'\n'
-	
+
+	# Make sure at least one  argument was sent	
 	files=`find_files "$1"`
-	if [ ! -z "$files" ]
+	if [ -n "$files" ]
 	then
 		set `find_files "$1"`
 		for fileName in "$@"
@@ -105,19 +124,25 @@ fix_files ()
                  	IFS=/
                  	set $fileName
                  	lastTerm="${@: -1}"
-                 	#get the new text for the file name
+        
+	         	# get the new text for the file name
                  	modLastTerm=$(echo $lastTerm | sed 's/ /-/g')
          		IFS=$OLDIFS
-        		newFileName=$(echo "$fileName" | sed "s/$lastTerm/$modLastTerm/g")
-         		my_rename "$fileName" "$newFileName"
+        
+			# Assemble the new filename
+			newFileName=$(echo "$fileName" | sed "s/$lastTerm/$modLastTerm/g")
+         		
+			# Rename the file
+			my_rename "$fileName" "$newFileName"
 
 		done
+	
+	#Send value to my_rename for error catching
 	else
 		my_rename "$1"
 	fi
 	IFS=$OLDIFS
     }
-
 WFILE=
 WDIR=
 DIR=

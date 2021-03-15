@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh
+#!/bin/ksh
 
 USAGE="Usage: 
 $0 -f directory

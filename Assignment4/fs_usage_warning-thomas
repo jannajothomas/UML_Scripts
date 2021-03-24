@@ -1,0 +1,71 @@
+#!/bin/bash
+
+BASENAME="${0##*/}"
+USAGE="Usage: $BASENAME [-c capacity-percentage] email-address [email-address]"
+CAP=60
+
+case $1 in
+	-c)
+		#If -c is used, the next term is the percent
+		CAP="$2"
+		#make sure CAP exists, is a number, and is  less than 101.  Dump results
+		[ -n "$CAP" ]  && [ "$CAP" -eq "$CAP" ] && [ "$CAP" -lt 101 ] 2>/dev/null
+		if [ $? -ne 0 ]
+		then
+			echo "Error: capacity must be a number between 1 and 100"
+			echo "$USAGE"
+			exit 1
+		else
+			shift
+			shift
+		fi
+		;;
+
+	-*)
+		print "$1 is not a valid command"
+		echo "$USAGE"
+		exit 1
+		;;
+esac
+
+
+if [ "$#" -eq 0 ] 
+then
+        echo "Error : No parameters were specified"
+        echo "$USAGE"
+	exit 1
+fi
+
+EMAILS="$@"
+
+# Set IFS to newline so each parameter is a full line of text
+OLDIFS=$IFS
+IFS='
+'
+
+set $(df -k -t nfs -t ext4 -t ext2)
+IFS=$OLDIFS
+#store header for email message body  (header)
+HEADER="$1"
+shift
+
+#check each file system
+for L
+do
+	set $L
+	JustInt=`echo "$5" | cut -d% -f1`
+	if [ $JustInt -ge "$CAP" ]
+	then
+		if [ $JustInt -ge 90 ]
+		then
+
+			SUBJECT="Critical Warning: the file system "$1" is greater than or equal to 90% capacity."
+		else
+			SUBJECT="Warning: the file system "$1" is above "$CAP"% capacity"
+		fi
+		mailx -s "$SUBJECT" $EMAILS << ENDOFEMAIL
+                "$HEADER"
+                "$L"
+ENDOFEMAIL
+	fi
+done
